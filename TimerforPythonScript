@@ -1,0 +1,9 @@
+import time
+
+start = time.time()
+
+#insert code to test here
+
+end = time.time()
+print("Testing time duration of script")
+print (end - start)
