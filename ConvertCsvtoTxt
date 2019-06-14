@@ -1,0 +1,21 @@
+import os,csv
+
+#specify the directory path of the csv file to convert to txt format
+os.chdir('C:\\Users\\XXX')
+
+#define the variables for the extentions
+csv_ext = ".csv"
+txt_ext = ".txt"
+
+""" Loop through the 
+"""
+for item in os.listdir():
+    if item.endswith(csv_ext):
+        csv_file_name = os.path.abspath(item)
+        txt_file_name = csv_file_name[:-4]
+    with open(txt_file_name + txt_ext, "w") as my_output_file:
+        with open(csv_file_name,"r") as my_input_file:
+            [my_output_file.write(" ".join(row)+'\n') for row in csv.reader(my_input_file)]
+            my_output_file.close()    
+
+print("Script run completed!")
